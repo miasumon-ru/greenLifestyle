@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { signOut, updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
 
@@ -28,14 +29,39 @@ const Register = () => {
         handleSubmit,
     } = useForm()
 
-    const handleRegister = (data, e) => {
+    const axiosPublic = useAxiosPublic()
 
-        const name = data.name
+    const handleRegister = async (data, e) => {
+
+        // image upload and get the links from imagebb
+
+
+        const imageFile = {
+            image: data.image[0]
+        }
+
+        const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
+
+        const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+
+
+        }
+
+        )
+
+        if(res.data.success){
+
+                    const name = data.name
         const email = data.email
-        const photoURL = data.photoURL
+        const photoURL = res.data.data.display_url
         const password = data.password
 
-        console.log(name, email, photoURL, password)
+        console.log(name, email, photoURL,  password)
 
         // 
 
@@ -53,13 +79,15 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+
+
                 console.log(result.user)
 
                 // update profile
 
                 updateProfile(auth.currentUser, {
                     displayName: name,
-                    photoURL: data.photoURL
+                    photoURL: res.data.data.display_url
                 })
                     .then(() => {
                         // console.log("updated profile")
@@ -94,6 +122,77 @@ const Register = () => {
         // reset the form
 
         e.target.reset()
+
+        }
+
+
+
+        // const name = data.name
+        // const email = data.email
+        // const photoURL = data.photoURL
+        // const password = data.password
+
+        // console.log(name, email, photoURL, password)
+
+        // // 
+
+        // if (password.length < 6) {
+        //     return toast.warn("Password must be at least 6 characters")
+        // }
+        // else if (!/[A-Z]/.test(password)) {
+        //     return toast.warn(" Please provide at least one capital letter in the password field ")
+        // }
+        // else if (!/[^\w\s]/.test(password)) {
+        //     return toast.warn("Please provide at least one special character in the password field")
+        // }
+
+        // // createUser
+
+        // createUser(email, password)
+        //     .then(result => {
+
+
+        //         console.log(result.user)
+
+        //         // update profile
+
+        //         updateProfile(auth.currentUser, {
+        //             displayName: name,
+        //             photoURL: data.photoURL
+        //         })
+        //             .then(() => {
+        //                 // console.log("updated profile")
+        //             })
+        //             .catch((error) => {
+        //                 console.log(error.message)
+        //             })
+        //         toast.success("  Successful Registration and Please Login ")
+
+
+        //         // signOut
+
+        //         signOut(auth)
+        //             .then(() => {
+        //                 // console.log("logout successfull")
+        //             })
+
+        //         // navigate to the login page 
+
+        //         setTimeout(() => {
+        //             navigate('/login')
+        //         }, 3000)
+
+
+
+
+        //     })
+        //     .catch(error => {
+        //         console.log(error.message)
+        //     })
+
+        // // reset the form
+
+        // e.target.reset()
 
     }
 
@@ -132,22 +231,37 @@ const Register = () => {
                             </label>
                             <input type="Email" {...register("email")} placeholder="Email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+
+                        {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <input type="text" {...register("photoURL")} placeholder="Photo URL" className="input input-bordered" required />
-                        </div>
+                        </div> */}
+
+
+
+
 
                         <div className="form-control relative">
+
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
+
                             <input type={showPassword ? 'text' : 'password'} {...register("password")} placeholder="Password" className="input input-bordered" required />
 
                             <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-12 "> {showPassword ? <FaEyeSlash className="text-2xl" /> : <FaEye className="text-2xl" />}  </span>
 
 
+                        </div>
+
+                        <div className="form-control">
+
+                            <label className="label">
+                                <span className="label-text">Upload Image</span>
+                            </label>
+                            <input {...register("image")} type="file" className="file-input w-full max-w-xs " />
                         </div>
 
                         <div className="form-control mt-6">

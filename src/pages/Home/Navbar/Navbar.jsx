@@ -1,9 +1,29 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+
+import defaultUserIcon from '../../../assets/user.png'
 
 
 
 
 const Navbar = () => {
+
+    const { user, logOut } = useAuth()
+
+    console.log(user)
+
+    // handle Logout
+
+    const handleLogOut = () => {
+
+        logOut()
+            .then(() => {
+                // console.log("logout is successful")
+            })
+
+
+
+    }
 
 
 
@@ -43,12 +63,18 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
 
-               
+
 
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+
+                            {
+                                user ?  <img alt="User Profile Image" src={user?.photoURL} /> : <img alt="User Profile Image" src={defaultUserIcon} />
+                            }
+
+
+                           
                         </div>
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -58,8 +84,8 @@ const Navbar = () => {
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li>Dashboard</li>
+                        <button className="btn" onClick={handleLogOut} > Logout </button>
                     </ul>
                 </div>
 

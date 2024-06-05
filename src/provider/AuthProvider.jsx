@@ -20,7 +20,7 @@ const AuthProvider = ({children}) => {
 
     // create user
 
-    const createUser = (email, password) => {
+    const createUser = async(email, password) => {
 
         return createUserWithEmailAndPassword(auth, email, password)
 
