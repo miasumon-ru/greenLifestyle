@@ -5,14 +5,16 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
+
+
     const links = <>
 
         <li> <NavLink to='/' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A] ' : ''} > Home </NavLink> </li>
         <li> <NavLink to='/apartment' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Apartment </NavLink> </li>
 
-        {/* <li> <NavLink to='/readBooks' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Pages to Read </NavLink> </li>
+        <li> <NavLink to='/login' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Login </NavLink> </li>
 
-        <li> <NavLink to='/newRelease' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > New Release </NavLink> </li>
+        {/* <li> <NavLink to='/newRelease' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > New Release </NavLink> </li>
 
         <li> <NavLink to='/bestSeller' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Best Seller </NavLink> </li> */}
 
@@ -40,6 +42,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+
+               
 
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
