@@ -74,10 +74,10 @@ const Slider = () => {
         >
 
             {
-                sliders.map((slider, index)=>  <SwiperSlide key={index} className='relative' >
+                sliders.map((slider, index)=>  <SwiperSlide key={index} className='relative  ' >
 
                 <div>
-                    <img className='rounded-lg -p-5' src={slider.img} alt="" />
+                    <img className='rounded-lg -p-5 ' src={slider.img} alt="" />
                 </div>
 
                 <div className='absolute'>

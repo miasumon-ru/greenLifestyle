@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Slider from "./Slider/Slider";
 import About from "./About/About";
+import Footer from "../../shared/Footer/Footer";
 
 
 
@@ -24,6 +25,12 @@ const Home = () => {
 
             <div className="mb-10">
                 <About></About>
+            </div>
+
+            {/* footer */}
+
+            <div>
+                <Footer></Footer>
             </div>
 
         </div>
