@@ -87,13 +87,13 @@ const Slider = () => {
 
                         
 
-                        <Slide>
-                            <p> Explore The Buildings </p>
+                        <Slide direction='down'>
+                            <p> Explore The Apartments </p>
                         </Slide >
 
                         {''} <br />
 
-                        <span className='text-green-200 font-bold'>
+                        <span className='text-red-200 font-bold'>
 
                             <Typewriter
                                 words={["Spacious", "Modern", "Luxurious", "Affordable", 'Elegant']}
