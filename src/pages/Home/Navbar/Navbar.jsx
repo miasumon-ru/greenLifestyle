@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 import defaultUserIcon from '../../../assets/user.png'
@@ -77,15 +77,23 @@ const Navbar = () => {
                            
                         </div>
                     </div>
-                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
+                    <ul tabIndex={0} className="mt-3 z-[50] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <li className="border p-2 bg-gray-400 text-white ">
+
+                           {user?.displayName}
+                         
                         </li>
-                        <li>Dashboard</li>
-                        <button className="btn" onClick={handleLogOut} > Logout </button>
+                        <li className="">
+
+                            <Link className="text-center border p-2 bg-gray-400 text-white uppercase"  to={'/dashboard'}>    Dashboard </Link>
+
+                        
+ 
+                        </li>
+
+
+                 
+                        <li className="btn uppercase mt-2" onClick={handleLogOut} > Logout </li>
                     </ul>
                 </div>
 
