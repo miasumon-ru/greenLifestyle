@@ -83,7 +83,7 @@ const Slider = () => {
                 <div className='absolute'>
 
 
-                    <p className=' text-2xl md:text-6xl text-gray-200 font-bold '>
+                    <div className=' text-2xl md:text-6xl text-gray-200 font-bold '>
 
                         
 
@@ -108,7 +108,7 @@ const Slider = () => {
                             />
 
                         </span>
-                    </p>
+                    </div>
 
                     <Link to={"/craftsAll"}>
                         <button className='btn mt-10 '> View All </button>

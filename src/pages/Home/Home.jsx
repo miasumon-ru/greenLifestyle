@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Slider from "./Slider/Slider";
 import About from "./About/About";
 import Footer from "../../shared/Footer/Footer";
+import FindUs from "./FindUs/FindUs";
 
 
 
@@ -27,11 +28,19 @@ const Home = () => {
                 <About></About>
             </div>
 
+            {/* Location of the apartment */}
+
+            <div className="my-8">
+                <FindUs></FindUs>
+            </div>
+
             {/* footer */}
 
             <div>
                 <Footer></Footer>
             </div>
+
+
 
         </div>
     );
