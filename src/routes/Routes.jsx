@@ -8,6 +8,13 @@ import Register from "../pages/Register/Register";
 import Apartment from "../pages/Apartment/Apartment";
 import PrivateRoute from "./PrivateRoute";
 
+import Dashboard from "../layout/MainLayout/Dashboard";
+import UserDashboard from "../pages/Dashboard/UserDashboard";
+
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -37,6 +44,17 @@ const router = createBrowserRouter([
 
     ],
   },
+  {
+    path : 'dashboard',
+    element :<Dashboard></Dashboard>,
+    children : [
+      {
+        path : 'userDashboard',
+        element : <UserDashboard></UserDashboard>
+
+      },
+    ]
+  }
 ]);
 
 export default router

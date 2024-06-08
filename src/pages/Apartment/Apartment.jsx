@@ -16,8 +16,11 @@ const Apartment = () => {
 
     // pagination
 
-    const [itemsPerPage, setItemsPerPage] = useState(6)
+    // const [itemsPerPage, setItemsPerPage] = useState(6)
+    const itemsPerPage = 6
     const [currentPage, setCurrentPage] = useState(0)
+
+  
 
     // apartments count
 
