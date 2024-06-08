@@ -15,5 +15,6 @@ const ApartmentCardDetails = ( {name, value}) => {
 ApartmentCardDetails.propTypes = {
     name: PropTypes.string,
     value : PropTypes.string
+   
 }
 export default ApartmentCardDetails;

@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import ApartmentCardDetails from './ApartmentCardDetails';
 
 
-const ApartmentCard = ({ apartment }) => {
+const ApartmentCard = ({ apartment, handleAgreement }) => {
 
-    const { apartment_image, floor_no, block_name, apartment_no, rent } = apartment
+    const { _id, apartment_image, floor_no, block_name, apartment_no, rent } = apartment
+
 
 
 
@@ -22,7 +23,7 @@ const ApartmentCard = ({ apartment }) => {
                 </div>
 
                 <div className="card-actions ">
-                    <button className="btn w-full bg-green-500 text-white hover:bg-green-600">Agreement</button>
+                    <button onClick={()=> handleAgreement(_id)} className="btn w-full bg-green-500 text-white roboto font-bold hover:bg-green-600"> Agreement </button>
                 </div>
             </div>
         </div>
@@ -32,7 +33,8 @@ const ApartmentCard = ({ apartment }) => {
 
 
 ApartmentCard.propTypes = {
-    apartment: PropTypes.object
+    apartment: PropTypes.object,
+    handleAgreement : PropTypes.func
 }
 
 

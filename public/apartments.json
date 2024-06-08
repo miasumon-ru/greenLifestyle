@@ -2,194 +2,194 @@
 [
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 1,
+        "floor_no": "1",
         "block_name": "A",
         "apartment_no": "101",
-        "rent": 1200,
+        "rent": "1200",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 2,
+        "floor_no": "2",
         "block_name": "A",
         "apartment_no": "202",
-        "rent": 1300,
+        "rent": "1300",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 3,
+        "floor_no": "3",
         "block_name": "B",
         "apartment_no": "303",
-        "rent": 1100,
+        "rent": "1100",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 4,
+        "floor_no": "4",
         "block_name": "B",
         "apartment_no": "404",
-        "rent": 1400,
+        "rent": "1400",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 5,
+        "floor_no": "5",
         "block_name": "C",
         "apartment_no": "505",
-        "rent": 1500,
+        "rent": "1500",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 6,
+        "floor_no": "6",
         "block_name": "C",
         "apartment_no": "606",
-        "rent": 1600,
+        "rent": "1600",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 7,
+        "floor_no": "7",
         "block_name": "D",
         "apartment_no": "707",
-        "rent": 1700,
+        "rent": "1700",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 8,
+        "floor_no": "8",
         "block_name": "D",
         "apartment_no": "808",
-        "rent": 1800,
+        "rent": "1800",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 9,
+        "floor_no": "9",
         "block_name": "E",
         "apartment_no": "909",
-        "rent": 1900,
+        "rent": "1900",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 10,
+        "floor_no": "10",
         "block_name": "E",
         "apartment_no": "1010",
-        "rent": 2000,
+        "rent": "2000",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 1,
+        "floor_no": "1",
         "block_name": "F",
         "apartment_no": "1101",
-        "rent": 2100,
+        "rent": "2100",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 2,
+        "floor_no": "2",
         "block_name": "F",
         "apartment_no": "1202",
-        "rent": 2200,
+        "rent": "2200",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 3,
+        "floor_no": "3",
         "block_name": "G",
         "apartment_no": "1303",
-        "rent": 2300,
+        "rent": "2300",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 4,
+        "floor_no": "4",
         "block_name": "G",
         "apartment_no": "1404",
-        "rent": 2400,
+        "rent": "2400",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 5,
+        "floor_no": "5",
         "block_name": "H",
         "apartment_no": "1505",
-        "rent": 2500,
+        "rent": "2500",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 6,
+        "floor_no": "6",
         "block_name": "H",
         "apartment_no": "1606",
-        "rent": 2600,
+        "rent": "2600",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 7,
+        "floor_no": "7",
         "block_name": "I",
         "apartment_no": "1707",
-        "rent": 2700,
+        "rent": "2700",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 8,
+        "floor_no": "8",
         "block_name": "I",
         "apartment_no": "1808",
-        "rent": 2800,
+        "rent": "2800",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 9,
+        "floor_no": "9",
         "block_name": "J",
         "apartment_no": "1909",
-        "rent": 2900,
+        "rent": "2900",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 10,
+        "floor_no": "10",
         "block_name": "J",
         "apartment_no": "2010",
-        "rent": 3000,
+        "rent": "3000",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/D0WqKGDx/room1.jpg",
-        "floor_no": 11,
+        "floor_no": "11",
         "block_name": "K",
         "apartment_no": "2111",
-        "rent": 3100,
+        "rent": "3100",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/VN8QrBWb/room2-1.jpg",
-        "floor_no": 12,
+        "floor_no": "12",
         "block_name": "K",
         "apartment_no": "2212",
-        "rent": 3200,
+        "rent": "3200",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/L8F0N4Yc/room30-1.jpg",
-        "floor_no": 13,
+        "floor_no": "13",
         "block_name": "L",
         "apartment_no": "2313",
-        "rent": 3300,
+        "rent": "3300",
         "agreement_button": "View Agreement"
     },
     {
         "apartment_image": "https://i.postimg.cc/ydxfkktZ/room122.jpg",
-        "floor_no": 14,
+        "floor_no": "14",
         "block_name": "L",
         "apartment_no": "2414",
-        "rent": 3400,
+        "rent": "3400",
         "agreement_button": "View Agreement"
     }
 ]

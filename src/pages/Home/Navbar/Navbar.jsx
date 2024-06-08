@@ -29,10 +29,9 @@ const Navbar = () => {
 
     const links = <>
 
-        <li> <NavLink to='/' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A] ' : ''} > Home </NavLink> </li>
-        <li> <NavLink to='/apartment' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Apartment </NavLink> </li>
-
-        <li> <NavLink to='/login' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Login </NavLink> </li>
+        <li className="roboto"> <NavLink to='/' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A] ' : ''} > Home </NavLink> </li>
+        <li className="roboto"> <NavLink to='/apartment' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Apartment </NavLink> </li>
+        <li className="roboto"> <NavLink to='/login' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > Login </NavLink> </li>
 
         {/* <li> <NavLink to='/newRelease' className={({ isActive }) => isActive ? ' text-[#23BE0A] border border-[#23BE0A]' : ''} > New Release </NavLink> </li>
 
