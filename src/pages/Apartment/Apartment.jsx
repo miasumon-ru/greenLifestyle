@@ -33,11 +33,9 @@ const Apartment = () => {
     const count = counts
 
     const numberOfPages = Math.ceil(count / itemsPerPage)
-    console.log(numberOfPages)
+   
 
     const pages = [...Array(numberOfPages).keys()]
-
-    console.log(pages)
 
     // handle previous page
 
@@ -90,7 +88,6 @@ const Apartment = () => {
             status: 'pending'
         }
 
-        console.log(agreementInfo)
 
         // insert the agreement info to the agreementsCollection of the database
 
