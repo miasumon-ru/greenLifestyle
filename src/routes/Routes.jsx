@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Apartment from "../pages/Apartment/Apartment";
 
  
   const router = createBrowserRouter([
@@ -15,15 +16,19 @@ import Register from "../pages/Register/Register";
       children: [
         {
           path: "/",
-          element: <Home></Home>,
+          element: <Home></Home>
         },
         {
           path: "/login",
-          element: <Login></Login>,
+          element: <Login></Login>
         },
         {
           path: "/register",
-          element: <Register></Register>,
+          element: <Register></Register>
+        },
+        {
+          path: "/apartment",
+          element: <Apartment></Apartment>
         },
 
       ],
