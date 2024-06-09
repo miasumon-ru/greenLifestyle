@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 
 import Dashboard from "../layout/MainLayout/Dashboard";
 import UserDashboard from "../pages/Dashboard/UserDashboard";
+import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 
 
 
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path : 'userDashboard',
         element : <UserDashboard></UserDashboard>
+
+      },
+      {
+        path : 'myProfile',
+        element : <MyProfile></MyProfile>
 
       },
     ]
