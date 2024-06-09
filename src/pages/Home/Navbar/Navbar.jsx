@@ -84,7 +84,7 @@ const Navbar = () => {
                         </li>
                         <li className="">
 
-                            <Link className="text-center border p-2 bg-gray-400 text-white uppercase"  to={'/dashboard/userDashboard'}> Dashboard </Link>
+                            <Link className="text-center border p-2 bg-gray-400 text-white uppercase"  to={'/dashboard/myProfile'}> Dashboard </Link>
 
                         
  

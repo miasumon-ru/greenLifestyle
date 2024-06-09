@@ -5,8 +5,9 @@ import Footer from "../../shared/Footer/Footer";
 import FindUs from "./FindUs/FindUs";
 
 
-
 const Home = () => {
+
+   
     return (
         <div>
 
