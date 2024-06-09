@@ -2,6 +2,7 @@
 import { Helmet } from 'react-helmet-async'
 import useRole from '../../../hooks/useRole';
 import UserDashboard from '../UserDashboard';
+import MemberProfile from '../Member/MemberProfile';
 
 
 
@@ -17,12 +18,13 @@ const MyProfile = () => {
 
 
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='  h-screen'>
             <Helmet>
                 <title>Profile</title>
             </Helmet>
 
-            {role === 'pending' ? <UserDashboard></UserDashboard> : undefined }
+            {role === 'user' && <UserDashboard></UserDashboard> }
+            {role === 'member' && <MemberProfile></MemberProfile> }
 
         </div>
     );

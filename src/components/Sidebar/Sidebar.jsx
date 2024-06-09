@@ -2,20 +2,25 @@ import { useState } from 'react'
 
 import { AiOutlineBars } from 'react-icons/ai'
 
-import { TfiAnnouncement } from "react-icons/tfi";
-import { NavLink } from 'react-router-dom'
-
 import { Link } from 'react-router-dom'
 
-import { FaUser } from 'react-icons/fa'
+import useRole from '../../hooks/useRole';
+import UserSidebar from '../UserSidebar/UserSidebar';
+import MemberSidebar from '../MemberSidebar/MemberSidebar';
 
 const Sidebar = () => {
     
     const [isActive, setActive] = useState(false)
 
+    const [role, isLoading] = useRole()
+
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
+    }
+
+    if(isLoading){
+        return <span className="loading loading-bars loading-lg"></span>
     }
     return (
         <>
@@ -79,34 +84,18 @@ const Sidebar = () => {
                         {/* Conditional toggle button here.. */}
 
                   
-                        <nav className='roboto font-medium'>
-                            {/* My Profile */}
-                            <NavLink
-                                to='/dashboard/myProfile'
-                                className={({ isActive }) =>
-                                    `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-green-300   hover:text-gray-700 ${isActive ? 'bg-green-300  text-gray-700' : 'text-gray-600'
-                                    }`
-                                }
-                            >
-                                < FaUser className='w-5 h-5' />
+                        {
 
-                                <span className='mx-4 font-medium'>My Profile</span>
+                            role === 'user' ? <UserSidebar></UserSidebar> : undefined
 
-                            </NavLink>
-         
-                            <NavLink
-                                to='add-room'
-                                className={({ isActive }) =>
-                                    `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-green-300  hover:text-gray-700 ${isActive ? 'bg-green-300  text-gray-700' : 'text-gray-600'
-                                    }`
-                                }
-                            >
-                                <TfiAnnouncement className='w-5 h-5' />
+                        }
 
-                                <span className='mx-4 font-medium'> Announcement </span>
-                            </NavLink>
+                        {
+                            role === 'member' ? <MemberSidebar></MemberSidebar> : undefined
+                        }
 
-                        </nav>
+
+
                     </div>
                 </div>
 

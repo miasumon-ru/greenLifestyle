@@ -88,7 +88,8 @@ const Apartment = () => {
             blockName: apartment.data.block_name,
             apartmentNo: apartment.data.apartment_no,
             rent: apartment.data.rent,
-            status: 'pending'
+            status: 'pending',
+            role : 'user'
         }
 
 
