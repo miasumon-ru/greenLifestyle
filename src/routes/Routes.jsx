@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layout/MainLayout/Dashboard";
 import UserDashboard from "../pages/Dashboard/UserDashboard";
 import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
+import MakePayment from "../pages/Dashboard/Member/MakePayment";
+import Payment from "../pages/Dashboard/Member/Payment";
 
 
 
@@ -57,6 +59,16 @@ const router = createBrowserRouter([
       {
         path : 'myProfile',
         element : <MyProfile></MyProfile>
+
+      },
+      {
+        path : 'makePayment',
+        element : <MakePayment></MakePayment>
+
+      },
+      {
+        path : 'payment',
+        element : <Payment></Payment>
 
       },
     ]

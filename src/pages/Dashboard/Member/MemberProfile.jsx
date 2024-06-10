@@ -62,18 +62,16 @@ const MemberProfile = () => {
                             <tbody className="">
                                 {/* row 1 */}
 
-                                {
-                                    agreementsAll.map((agreement, index) => <tr key={index}>
-                                        <th> {index + 1} </th>
+                        
+                                    <tr >
+                                        <th> 1 </th>
                                         <td> [{date}] </td>
-                                        <td> {agreement?.floorNo} </td>
-                                        <td> {agreement?.blockName} </td>
-                                        <td> {agreement?.apartmentNo} </td>
+                                        <td> {agreementsAll?.floorNo} </td>
+                                        <td> {agreementsAll?.blockName} </td>
+                                        <td> {agreementsAll?.apartmentNo} </td>
                                    
-                                    </tr>)
-                                }
-
-
+                                    </tr>
+                        
 
 
                             </tbody>

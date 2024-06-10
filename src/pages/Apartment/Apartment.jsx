@@ -95,10 +95,10 @@ const Apartment = () => {
 
         // insert the agreement info to the agreementsCollection of the database
 
-        const agreement = await axiosPublic.post('/agreements', agreementInfo)
+        const agreement = await axiosPublic.post(`/agreements/${user?.email}`, agreementInfo)
 
         if (agreement.data.message === true) {
-            return toast.error('Yor already requested for this apartment')
+            return toast.error( ' Sorry !! A user is able to apply for one apartment only')
         }
 
         if (agreement.data.insertedId) {
