@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
 
@@ -17,6 +18,8 @@ const CheckoutForm = () => {
     const elements = useElements();
     const axiosPublic = useAxiosPublic()
     const { user } = useAuth()
+
+    const navigate = useNavigate()
 
 
 
@@ -129,6 +132,10 @@ const CheckoutForm = () => {
                     email: user?.email,
                     price: totalPrice,
                     date: new Date(),
+                    userName : agreementsPayment.userName,
+                    floorNo : agreementsPayment.floorNo,
+                    blockName : agreementsPayment.blockName,
+                    apartmentNo : agreementsPayment.apartmentNo
                     // cartId: cart.map(item => item._id),
                     // menuId: cart.map(item => item.menuId),
                     // status: 'pending'
@@ -157,13 +164,13 @@ const CheckoutForm = () => {
                     //     timer: 1500
                     // });
 
-                    toast.success('payment has been successful')
+                    toast.success('Payment has been successful')
 
                     // navigate to the payment history
 
-                    // setTimeout(() => {
-                    //     navigate('/dashboard/paymentHistory')
-                    // }, 2500)
+                    setTimeout(() => {
+                        navigate('/dashboard/paymentHistory')
+                    }, 2500)
 
 
                 }

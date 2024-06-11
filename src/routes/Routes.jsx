@@ -13,6 +13,7 @@ import UserDashboard from "../pages/Dashboard/UserDashboard";
 import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import Payment from "../pages/Dashboard/Member/Payment";
+import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 
 
 
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
       {
         path : 'payment',
         element : <Payment></Payment>
+
+      },
+      {
+        path : 'paymentHistory',
+        element : <PaymentHistory></PaymentHistory>
 
       },
     ]
