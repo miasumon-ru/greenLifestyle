@@ -8,6 +8,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 
 import { GoogleAuthProvider } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -17,6 +19,10 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading , setLoading] = useState(true)
+
+    const axiosPublic = useAxiosPublic()
+
+
 
     // create user
 
@@ -55,7 +61,7 @@ const AuthProvider = ({children}) => {
 
     useEffect(()=> {
 
-        const unSubscribe = onAuthStateChanged(auth, (currentUser)=> {
+        const unSubscribe = onAuthStateChanged(auth, async(currentUser)=> {
 
             // console.log(currentUser)
 
@@ -63,7 +69,28 @@ const AuthProvider = ({children}) => {
             //     email : currentUser?.email || user?.email
             // }
 
+            // users information saved in the database
+
+            const userInfo = {
+                name : currentUser?.displayName,
+                email : currentUser?.email,
+                role : 'user'
+            }
+
+            if(currentUser){
+                const res = await axiosPublic.post(`/users`, userInfo)
+                console.log(res.data)
+            }
+
+      
+            console.log('currentUser', currentUser)
+
+    
+
             setUser(currentUser)
+
+         
+
             setLoading(false)
 
         
@@ -88,10 +115,10 @@ const AuthProvider = ({children}) => {
         })
 
         return ()=> {
-           unSubscribe()
+          ()=> unSubscribe()
         }
 
-    }, [])
+    }, [user?.email, user?.displayName, axiosPublic])
 
     const authInfo = {
 

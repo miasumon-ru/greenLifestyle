@@ -17,6 +17,7 @@ import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
 import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
 import Announcement from "../components/Announcement/Announcement";
+import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 
 
 
@@ -93,6 +94,11 @@ const router = createBrowserRouter([
       {
         path : 'makeAnnouncement',
         element : <MakeAnnouncement></MakeAnnouncement>
+
+      },
+      {
+        path : 'agreements',
+        element : <AgreementRequest></AgreementRequest>
 
       },
     ]

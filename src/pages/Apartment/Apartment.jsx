@@ -81,6 +81,8 @@ const Apartment = () => {
 
         console.log(apartment.data)
 
+        const date = new Date().toDateString()
+
         const agreementInfo = {
             userName: user?.displayName,
             userEmail: user?.email,
@@ -89,7 +91,7 @@ const Apartment = () => {
             apartmentNo: apartment.data.apartment_no,
             rent: apartment.data.rent,
             status: 'pending',
-            role : 'user'
+            requestDate : date
         }
 
 

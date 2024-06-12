@@ -21,6 +21,7 @@ const Register = () => {
 
     const { createUser } = useAuth()
     const navigate = useNavigate()
+    
 
     const [showPassword, setShowPassword] = useState(false)
 

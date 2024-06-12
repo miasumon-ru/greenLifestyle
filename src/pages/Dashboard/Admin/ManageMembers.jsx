@@ -19,11 +19,9 @@ const ManageMembers = () => {
     const { data: members = [], isLoading, refetch: againFetch } = useQuery({
         queryKey: ['members', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/agreements/${user?.email}`)
+            const res = await axiosPublic.get(`/users/${user?.email}`)
 
-            console.log(res, isLoading)
-
-
+            console.log(res.data.members, isLoading)
 
             if (res.data.members) {
 
@@ -44,9 +42,9 @@ const ManageMembers = () => {
 
     // handle remove the member and patch the member into user
 
-    const handleMember = async (id) => {
+    const handleMember = async (email) => {
 
-        console.log(id)
+        console.log(email)
 
         Swal.fire({
             title: "Are you sure?",
@@ -59,9 +57,14 @@ const ManageMembers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
 
-                const res = await axiosPublic.patch(`/agreements/${id}`, { status: 'user' })
+                const res = await axiosPublic.patch(`/users/${email}`, { status: 'user' })
+
+                console.log(res.data)
 
                 if (res.data.modifiedCount > 0) {
+
+                    againFetch()
+                    refetch()
                     
                     Swal.fire({
                         title: "Converted into User",
@@ -69,7 +72,7 @@ const ManageMembers = () => {
                         icon: "success"
                     });
 
-                    againFetch()
+                  
 
                 }
 
@@ -110,9 +113,9 @@ const ManageMembers = () => {
                             {
                                 members.map((member, index) => <tr key={index} className="">
                                     <th> {index + 1} </th>
-                                    <td> {member.userName} </td>
-                                    <td> {member.userEmail} </td>
-                                    <td> <button onClick={() => handleMember(member._id)} className="btn btn-xs text-red-600"> remove </button> </td>
+                                    <td> {member.name} </td>
+                                    <td> {member.email} </td>
+                                    <td> <button onClick={() => handleMember(member.email)} className="btn btn-xs text-red-600"> remove </button> </td>
                                 </tr>)
                             }
 

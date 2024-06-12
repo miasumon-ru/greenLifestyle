@@ -10,9 +10,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Helmet } from 'react-helmet-async';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../firebase/firebase.config';
 
 const Login = () => {
     const navigate = useNavigate()
+
+    const {user} = useAuth()
 
     const { login, googleLogin } = useAuth()
 
@@ -75,6 +79,17 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 console.log(result.user)
+
+                updateProfile(auth.currentUser, {
+                    displayName: user?.name,
+                    photoURL: user?.photoURL
+                })
+                    .then(() => {
+                        console.log("updated profile")
+                    })
+                    .catch((error) => {
+                        console.log(error.message)
+                    })
 
                 toast.success("Login is successful")
 
