@@ -10,7 +10,7 @@ const PaymentHistory = () => {
 
     const axiosPublic = useAxiosPublic()
 
-    const { data: payments = [] } = useQuery({
+    const { data: payments = [], isLoading } = useQuery({
         queryKey: ['payments', user?.email],
         queryFn: async () => {
 
@@ -24,6 +24,10 @@ const PaymentHistory = () => {
     })
 
     console.log(payments)
+
+    if (isLoading) {
+        return <span className="loading loading-bars loading-lg"></span>
+    }
 
 
 

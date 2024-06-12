@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import useRole from '../../hooks/useRole';
 import UserSidebar from '../UserSidebar/UserSidebar';
 import MemberSidebar from '../MemberSidebar/MemberSidebar';
+import AdminSidebar from '../../pages/Dashboard/Admin/AdminSidebar';
 
 const Sidebar = () => {
     
@@ -92,6 +93,10 @@ const Sidebar = () => {
 
                         {
                             role === 'member' ? <MemberSidebar></MemberSidebar> : undefined
+                        }
+
+                        {
+                            role === 'admin' ? <AdminSidebar></AdminSidebar> : undefined
                         }
 
 
