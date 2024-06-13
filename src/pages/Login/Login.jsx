@@ -69,10 +69,6 @@ const Login = () => {
         // reset the form
         e.target.reset()
 
-
-
-
-
     }
 
     // handle Google Login
@@ -94,8 +90,7 @@ const Login = () => {
                         console.log(error.message)
                     })
 
-                 console.log( 'auth curent user is ',  auth.currentUser)   
-
+    
                 //  saved user in the database
 
                  const userInfo = {
@@ -103,15 +98,13 @@ const Login = () => {
                     email: auth.currentUser?.email,
                     role: 'user'
                 }
-
-                console.log( 'info in the google login', userInfo)
-
-
-             
+  
                 const responseUser = await axiosPublic.post(`/users`, userInfo)
                 console.log(responseUser.data)
 
                 toast.success("Login is successful")
+
+
 
                 setTimeout(() => {
 

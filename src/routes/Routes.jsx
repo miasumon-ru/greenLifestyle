@@ -18,6 +18,7 @@ import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
 import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
 import Announcement from "../components/Announcement/Announcement";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
+import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
 
 
 
@@ -99,6 +100,11 @@ const router = createBrowserRouter([
       {
         path : 'agreements',
         element : <AgreementRequest></AgreementRequest>
+
+      },
+      {
+        path : 'manageCoupons',
+        element : <ManageCoupons></ManageCoupons>
 
       },
     ]

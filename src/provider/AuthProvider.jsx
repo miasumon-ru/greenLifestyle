@@ -76,10 +76,7 @@ const AuthProvider = ({ children }) => {
 
             // users information saved in the database
 
-            
-
-
-
+        
             // if (currentUser) {
 
             //     const userInfo = {
@@ -98,27 +95,6 @@ const AuthProvider = ({ children }) => {
 
 
             // console.log('currentUser', currentUser)
-
-
-
-
-
-            // console.log(loggedUser)
-
-            // if(currentUser){
-            //     axios.post('https://assignment-eleven-server-iota.vercel.app/jwt', loggedUser, {withCredentials:true} )
-            //     .then(res => {
-            //         console.log(res.data)
-            //     })
-            // }
-            // else{
-            //     axios.post("https://assignment-eleven-server-iota.vercel.app/logout", loggedUser  , {withCredentials : true})
-            //     .then( res => {
-            //         console.log(res.data)
-            //     })
-            // }
-
-
 
 
         })
