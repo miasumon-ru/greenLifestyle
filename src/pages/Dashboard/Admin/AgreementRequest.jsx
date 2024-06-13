@@ -26,9 +26,9 @@ const AgreementRequest = () => {
 
     // handle Accept
 
-    const handleAccept = async (email) => {
+    const handleAccept = async (agreement) => {
 
-        console.log(email)
+        console.log(agreement)
 
         Swal.fire({
             title: "Are you sure?",
@@ -43,50 +43,131 @@ const AgreementRequest = () => {
 
                 // change the status into checked
 
-                const res = await axiosPublic.patch(`agreements/${email}`, { status: "checked" })
+                const res = await axiosPublic.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
+                const result = await axiosPublic.patch(`/users/${agreement.userEmail}`, { status: 'member' })
+                console.log(result.data)
 
                 console.log(res.data)
 
                 if (res.data.modifiedCount > 0) {
 
+                   
+                    // find the accepted agreement
+
+                    const {data} = await axiosPublic.get(`/agreementsAll/${agreement.userEmail}`)  
+                    console.log(data)
+
+                    const {userName, userEmail, floorNo, blockName, apartmentNo, rent, status, requestDate} = data
+
+                    const acceptedDate = new Date().toDateString()
+
+                    const acceptedAgreementInfo = {
+
+                        userName,
+                        userEmail,
+                        floorNo,
+                        blockName,
+                        apartmentNo, 
+                        rent,
+                        status,
+                        requestDate,
+                        acceptedDate : acceptedDate
+
+                        
+                    }
+
+                    // saved the accepted agreement info into the new collection of the database
+         
+
+                    const acceptedAgreement = await axiosPublic.post('/acceptedAgreements', acceptedAgreementInfo)
+
+                    console.log(acceptedAgreement.data)
+
+
+                    // delete the requested apartment from the page after modified and accepted
+
+                    const agreementDeleted = await axiosPublic.delete(`/agreements/${agreement.userEmail}`)
+                    console.log(agreementDeleted.data)
+
                     // change the role user into member
-
-                    const result = await axiosPublic.patch(`/users/${email}`, { status: 'member' })
-
-                    if (result.data.modifiedCount > 0) {
-
-                        console.log(result.data)
-
+   
                         Swal.fire({
                             title: "Converted into member",
                             text: "The user has been member successfully.",
                             icon: "success"
                         });
-    
+
                         refetch()
-
-                    }
-
+    
+                
 
                 }
-
-
 
             }
         });
 
 
+
     }
 
 
+    
     // handle Reject
 
-    const handleReject = (id) => {
+    const handleReject = async (agreement) => {
 
-        console.log(id)
+        console.log(agreement)
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "The user will be rejected !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, convert it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+
+                // change the status into checked
+
+                const res = await axiosPublic.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
+                // const result = await axiosPublic.patch(`/users/${email}`, { status: 'member' })
+                // console.log(result.data)
+
+                console.log(res.data)
+
+                if (res.data.modifiedCount > 0) {
+
+                      // delete the requested apartment from the page after modified and rejected
+
+                      const agreementDeleted = await axiosPublic.delete(`/agreements/${agreement.userEmail}`)
+                      console.log(agreementDeleted.data)
+   
+                        Swal.fire({
+                            title: "Member has been rejected rejected!!",
+                            text: "The user has been rejected successfully.",
+                            icon: "success"
+                        });
+    
+                        refetch()
+
+                  
+
+
+                }
+
+            }
+        });
+
 
 
     }
+
+
+    
+
+
 
 
 
@@ -124,8 +205,8 @@ const AgreementRequest = () => {
                                 <td> {agreement.blockName} </td>
                                 <td> {agreement.apartmentNo} </td>
                                 <td> {agreement.requestDate} </td>
-                                <td> <button onClick={() => handleAccept(agreement.userEmail)} className="btn btn-xs text-green-400"> Accept </button> </td>
-                                <td> <button onClick={() => handleReject(agreement._id)} className="btn btn-xs text-red-400"> Reject </button> </td>
+                                <td> <button onClick={() => handleAccept(agreement)} className="btn btn-xs text-green-400"> Accept </button> </td>
+                                <td> <button onClick={() => handleReject(agreement)} className="btn btn-xs text-red-400"> Reject </button> </td>
                                 <td className="text-yellow-400"> {agreement.status} </td>
 
                             </tr>)

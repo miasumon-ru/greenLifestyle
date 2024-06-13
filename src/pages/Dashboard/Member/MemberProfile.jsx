@@ -9,22 +9,22 @@ const MemberProfile = () => {
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
 
-    const { data: agreementsAll, isLoading } = useQuery({
-        queryKey: ['agreementsAll', user?.email],
+    const { data: agreementAccepted = {}, isLoading } = useQuery({
+        queryKey: ['agreementAccepted', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/agreementsAll/${user?.email}`)
+            const res = await axiosPublic.get(`/acceptedAgreements/${user?.email}`)
             return res.data
         }
     })
 
-    console.log(agreementsAll)
+    console.log(agreementAccepted)
 
 
     if (isLoading) {
         return <span className="loading loading-bars loading-lg"></span>
     }
 
-    const date = new Date().toLocaleDateString()
+    // const date = new Date().toLocaleDateString()
 
 
     return (
@@ -65,10 +65,10 @@ const MemberProfile = () => {
                         
                                     <tr >
                                         <th> 1 </th>
-                                        <td> [{date}] </td>
-                                        <td> {agreementsAll?.floorNo} </td>
-                                        <td> {agreementsAll?.blockName} </td>
-                                        <td> {agreementsAll?.apartmentNo} </td>
+                                        <td> {agreementAccepted?.acceptedDate} </td>
+                                        <td> {agreementAccepted?.floorNo} </td>
+                                        <td> {agreementAccepted?.blockName} </td>
+                                        <td> {agreementAccepted?.apartmentNo} </td>
                                    
                                     </tr>
                         

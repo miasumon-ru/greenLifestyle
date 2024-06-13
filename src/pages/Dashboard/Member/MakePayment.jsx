@@ -10,9 +10,9 @@ const MakePayment = () => {
     const axiosPublic = useAxiosPublic()
 
     const { data: agreements, isLoading } = useQuery({
-        queryKey: ['agreementsAll', user?.email],
+        queryKey: ['agreementsAceept', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/agreementsAll/${user?.email}`)
+            const res = await axiosPublic.get(`/acceptedAgreements/${user?.email}`)
             return res.data
         }
     })
