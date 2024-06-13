@@ -12,11 +12,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../firebase/firebase.config';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Login = () => {
     const navigate = useNavigate()
 
     const {user} = useAuth()
+
+    const axiosPublic = useAxiosPublic()
 
     const { login, googleLogin } = useAuth()
 
@@ -77,7 +80,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
 
         googleLogin()
-            .then(result => {
+            .then( async result => {
                 console.log(result.user)
 
                 updateProfile(auth.currentUser, {
@@ -90,6 +93,23 @@ const Login = () => {
                     .catch((error) => {
                         console.log(error.message)
                     })
+
+                 console.log( 'auth curent user is ',  auth.currentUser)   
+
+                //  saved user in the database
+
+                 const userInfo = {
+                    name: auth.currentUser?.displayName,
+                    email: auth.currentUser?.email,
+                    role: 'user'
+                }
+
+                console.log( 'info in the google login', userInfo)
+
+
+             
+                const responseUser = await axiosPublic.post(`/users`, userInfo)
+                console.log(responseUser.data)
 
                 toast.success("Login is successful")
 

@@ -14,11 +14,11 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 const googleProvider = new GoogleAuthProvider();
 
 
- export const AuthContext = createContext()
+export const AuthContext = createContext()
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loading , setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     const axiosPublic = useAxiosPublic()
 
@@ -26,7 +26,7 @@ const AuthProvider = ({children}) => {
 
     // create user
 
-    const createUser = async(email, password) => {
+    const createUser = async (email, password) => {
 
         return createUserWithEmailAndPassword(auth, email, password)
 
@@ -59,9 +59,14 @@ const AuthProvider = ({children}) => {
 
     // onAuthStateChange , an observer
 
-    useEffect(()=> {
+    useEffect(() => {
 
-        const unSubscribe = onAuthStateChanged(auth, async(currentUser)=> {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+
+            setUser(currentUser)
+
+
+            setLoading(false)
 
             // console.log(currentUser)
 
@@ -71,29 +76,33 @@ const AuthProvider = ({children}) => {
 
             // users information saved in the database
 
-            const userInfo = {
-                name : currentUser?.displayName,
-                email : currentUser?.email,
-                role : 'user'
-            }
+            
 
-            if(currentUser){
-                const res = await axiosPublic.post(`/users`, userInfo)
-                console.log(res.data)
-            }
 
-      
-            console.log('currentUser', currentUser)
 
-    
+            // if (currentUser) {
 
-            setUser(currentUser)
+            //     const userInfo = {
+            //         name: currentUser.displayName,
+            //         email: currentUser.email,
+            //         role: 'user'
+            //     }
 
-         
+            //     console.log( 'info', userInfo)
+            //     console.log('user is ', user)
+            //     console.log('before', currentUser)
 
-            setLoading(false)
+            //     const res = await axiosPublic.post(`/users`, userInfo)
+            //     console.log(res.data)
+            // }
 
-        
+
+            // console.log('currentUser', currentUser)
+
+
+
+
+
             // console.log(loggedUser)
 
             // if(currentUser){
@@ -114,11 +123,11 @@ const AuthProvider = ({children}) => {
 
         })
 
-        return ()=> {
-          ()=> unSubscribe()
+        return () => {
+            return unSubscribe()
         }
 
-    }, [user?.email, user?.displayName, axiosPublic])
+    }, [axiosPublic])
 
     const authInfo = {
 
@@ -138,13 +147,13 @@ const AuthProvider = ({children}) => {
             {
                 children
             }
-            
+
         </AuthContext.Provider >
     );
 };
 
 AuthProvider.propTypes = {
-    children : PropTypes.node
+    children: PropTypes.node
 }
 
 

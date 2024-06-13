@@ -34,7 +34,7 @@ const Register = () => {
 
     const handleRegister = async (data, e) => {
 
-        // image upload and get the links from imagebb
+        // image upload and get the links from image bb
 
 
         const imageFile = {
@@ -57,12 +57,12 @@ const Register = () => {
 
         if(res.data.success){
 
-                    const name = data.name
+        const name = data.name
         const email = data.email
         const photoURL = res.data.data.display_url
         const password = data.password
 
-        console.log(name, email, photoURL,  password)
+        console.log( 'all are',  name, email, photoURL,  password)
 
         // 
 
@@ -79,7 +79,7 @@ const Register = () => {
         // createUser
 
         createUser(email, password)
-            .then(result => {
+            .then(async result => {
 
 
                 console.log(result.user)
@@ -96,6 +96,27 @@ const Register = () => {
                     .catch((error) => {
                         console.log(error.message)
                     })
+
+                    //  user collection
+
+             
+                        const userInfo = {
+                            name: name,
+                            email: email,
+                            role: 'user'
+                        }
+        
+                        console.log( 'info', userInfo)
+                     
+                        const responseUser = await axiosPublic.post(`/users`, userInfo)
+                        console.log(responseUser)
+                
+        
+        
+    
+        
+
+                    
                 toast.success("  Successful Registration and Please Login ")
 
 
