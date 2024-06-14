@@ -77,25 +77,29 @@ const AuthProvider = ({ children }) => {
             // users information saved in the database
 
         
-            // if (currentUser) {
+            if (currentUser) {
 
-            //     const userInfo = {
-            //         name: currentUser.displayName,
-            //         email: currentUser.email,
-            //         role: 'user'
-            //     }
+                const userInfo = {
+                    email: currentUser.email    
+                }
 
-            //     console.log( 'info', userInfo)
-            //     console.log('user is ', user)
-            //     console.log('before', currentUser)
+                axiosPublic.post('jwt', userInfo)
+                .then((res)=>{
 
-            //     const res = await axiosPublic.post(`/users`, userInfo)
-            //     console.log(res.data)
-            // }
+                    console.log(res.data.token)
 
+                    if(res.data.token){
+                        localStorage.setItem('access-token', res.data.token)
+                    }
 
-            // console.log('currentUser', currentUser)
+                })
 
+         
+            }
+            else{
+                // remove the token if the token is stored in the client side
+                localStorage.removeItem('access-token')
+            }
 
         })
 

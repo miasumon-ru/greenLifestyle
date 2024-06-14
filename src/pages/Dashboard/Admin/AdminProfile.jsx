@@ -8,6 +8,7 @@ import { MdOutlineEventAvailable } from "react-icons/md"
 import { CgUnavailable } from "react-icons/cg";
 import { FaUser } from "react-icons/fa6";
 import { MdCardMembership } from "react-icons/md";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const AdminProfile = () => {
@@ -15,6 +16,7 @@ const AdminProfile = () => {
     const { user } = useAuth()
 
     const axiosPublic = useAxiosPublic()
+    const axiosSecure =  useAxiosSecure()
 
     // all apartments/rooms data
 
@@ -35,7 +37,7 @@ const AdminProfile = () => {
     const { data: acceptedAgreementsAll = {} } = useQuery({
         queryKey: ['acceptedAgreementsAll'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/acceptedAgreementsAll`)
+            const res = await axiosSecure.get(`/acceptedAgreementsAll`)
             return res.data
         }
     })
@@ -48,7 +50,7 @@ const AdminProfile = () => {
     const { data: usersAll = [] } = useQuery({
         queryKey: ['usersAll'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/users`)
+            const res = await axiosSecure.get(`/users`)
             return res.data
         }
     })

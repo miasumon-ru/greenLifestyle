@@ -1,20 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import SectionTitle from "../../../components/SectionTilte/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const PaymentHistory = () => {
 
     const { user } = useAuth()
 
-    const axiosPublic = useAxiosPublic()
+    // const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
 
     const { data: payments = [], isLoading } = useQuery({
         queryKey: ['payments', user?.email],
         queryFn: async () => {
 
-            const res = await axiosPublic.get(`/payments/${user?.email}`)
+            const res = await axiosSecure.get(`/payments/${user?.email}`)
 
             // console.log(res.data)
 

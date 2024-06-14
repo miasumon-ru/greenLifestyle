@@ -19,6 +19,7 @@ import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
 import Announcement from "../components/Announcement/Announcement";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
+import AdminRoutes from "./AdminRoutes";
 
 
 
@@ -54,57 +55,67 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path : 'dashboard',
-    element :<Dashboard></Dashboard>,
-    children : [
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
       {
-        path : 'userDashboard',
-        element : <UserDashboard></UserDashboard>
+        path: 'userDashboard',
+        element: <UserDashboard></UserDashboard>
 
       },
       {
-        path : 'announcements',
-        element : <Announcement></Announcement>
+        path: 'announcements',
+        element: <Announcement></Announcement>
 
       },
       {
-        path : 'myProfile',
-        element : <MyProfile></MyProfile>
+        path: 'myProfile',
+        element: <MyProfile></MyProfile>
 
       },
       {
-        path : 'makePayment',
-        element : <MakePayment></MakePayment>
+        path: 'makePayment',
+        element: <MakePayment></MakePayment>
 
       },
       {
-        path : 'payment',
-        element : <Payment></Payment>
+        path: 'payment',
+        element: <Payment></Payment>
 
       },
       {
-        path : 'paymentHistory',
-        element : <PaymentHistory></PaymentHistory>
+        path: 'paymentHistory',
+        element: <PaymentHistory></PaymentHistory>
 
       },
       {
-        path : 'manageMembers',
-        element : <ManageMembers></ManageMembers>
+        path: 'manageMembers',
+        element: <AdminRoutes>
+          <ManageMembers></ManageMembers>
+        </AdminRoutes>
 
       },
       {
-        path : 'makeAnnouncement',
-        element : <MakeAnnouncement></MakeAnnouncement>
+        path: 'makeAnnouncement',
+        element: <AdminRoutes>
+
+          <MakeAnnouncement></MakeAnnouncement>
+
+        </AdminRoutes>
 
       },
       {
-        path : 'agreements',
-        element : <AgreementRequest></AgreementRequest>
+        path: 'agreements',
+        element: <AdminRoutes>
+          <AgreementRequest></AgreementRequest>
+        </AdminRoutes>
 
       },
       {
-        path : 'manageCoupons',
-        element : <ManageCoupons></ManageCoupons>
+        path: 'manageCoupons',
+        element: <AdminRoutes>
+          <ManageCoupons></ManageCoupons>
+        </AdminRoutes>
 
       },
     ]

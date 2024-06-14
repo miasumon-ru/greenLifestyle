@@ -2,17 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import SectionTitle from "../../../components/SectionTilte/SectionTitle";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const AgreementRequest = () => {
 
     // const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
 
     const { data: agreements, isLoading, refetch } = useQuery({
         queryKey: ['agreements'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/agreements')
+            const res = await axiosSecure.get('/agreements')
             return res.data
         }
     })
@@ -43,21 +45,21 @@ const AgreementRequest = () => {
 
                 // change the status into checked
 
-                const res = await axiosPublic.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
-                const result = await axiosPublic.patch(`/users/${agreement.userEmail}`, { status: 'member' })
+                const res = await axiosSecure.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
+                const result = await axiosSecure.patch(`/users/${agreement.userEmail}`, { status: 'member' })
                 console.log(result.data)
 
                 console.log(res.data)
 
                 if (res.data.modifiedCount > 0) {
 
-                   
+
                     // find the accepted agreement
 
-                    const {data} = await axiosPublic.get(`/agreementsAll/${agreement.userEmail}`)  
+                    const { data } = await axiosPublic.get(`/agreementsAll/${agreement.userEmail}`)
                     console.log(data)
 
-                    const {userName, userEmail, floorNo, blockName, apartmentNo, rent, status, requestDate} = data
+                    const { userName, userEmail, floorNo, blockName, apartmentNo, rent, status, requestDate } = data
 
                     const acceptedDate = new Date().toDateString()
 
@@ -67,17 +69,17 @@ const AgreementRequest = () => {
                         userEmail,
                         floorNo,
                         blockName,
-                        apartmentNo, 
+                        apartmentNo,
                         rent,
                         status,
                         requestDate,
-                        acceptedDate : acceptedDate
+                        acceptedDate: acceptedDate
 
-                        
+
                     }
 
                     // saved the accepted agreement info into the new collection of the database
-         
+
 
                     const acceptedAgreement = await axiosPublic.post('/acceptedAgreements', acceptedAgreementInfo)
 
@@ -86,20 +88,20 @@ const AgreementRequest = () => {
 
                     // delete the requested apartment from the page after modified and accepted
 
-                    const agreementDeleted = await axiosPublic.delete(`/agreements/${agreement.userEmail}`)
+                    const agreementDeleted = await axiosSecure.delete(`/agreements/${agreement.userEmail}`)
                     console.log(agreementDeleted.data)
 
                     // change the role user into member
-   
-                        Swal.fire({
-                            title: "Converted into member",
-                            text: "The user has been member successfully.",
-                            icon: "success"
-                        });
 
-                        refetch()
-    
-                
+                    Swal.fire({
+                        title: "Converted into member",
+                        text: "The user has been member successfully.",
+                        icon: "success"
+                    });
+
+                    refetch()
+
+
 
                 }
 
@@ -111,7 +113,7 @@ const AgreementRequest = () => {
     }
 
 
-    
+
     // handle Reject
 
     const handleReject = async (agreement) => {
@@ -139,20 +141,20 @@ const AgreementRequest = () => {
 
                 if (res.data.modifiedCount > 0) {
 
-                      // delete the requested apartment from the page after modified and rejected
+                    // delete the requested apartment from the page after modified and rejected
 
-                      const agreementDeleted = await axiosPublic.delete(`/agreements/${agreement.userEmail}`)
-                      console.log(agreementDeleted.data)
-   
-                        Swal.fire({
-                            title: "Member has been rejected rejected!!",
-                            text: "The user has been rejected successfully.",
-                            icon: "success"
-                        });
-    
-                        refetch()
+                    const agreementDeleted = await axiosSecure.delete(`/agreements/${agreement.userEmail}`)
+                    console.log(agreementDeleted.data)
 
-                  
+                    Swal.fire({
+                        title: "Member has been rejected rejected!!",
+                        text: "The user has been rejected successfully.",
+                        icon: "success"
+                    });
+
+                    refetch()
+
+
 
 
                 }
@@ -165,7 +167,7 @@ const AgreementRequest = () => {
     }
 
 
-    
+
 
 
 
@@ -191,7 +193,7 @@ const AgreementRequest = () => {
                             <th>Request Date</th>
                             <th>Accept</th>
                             <th>Reject</th>
-                         
+
                         </tr>
                     </thead>
                     <tbody>
@@ -209,7 +211,7 @@ const AgreementRequest = () => {
                                 <td> {agreement.requestDate} </td>
                                 <td> <button onClick={() => handleAccept(agreement)} className="btn btn-xs text-green-400"> Accept </button> </td>
                                 <td> <button onClick={() => handleReject(agreement)} className="btn btn-xs text-red-400"> Reject </button> </td>
-                       
+
 
                             </tr>)
                         }

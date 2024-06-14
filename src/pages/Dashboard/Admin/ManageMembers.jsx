@@ -1,17 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import SectionTitle from "../../../components/SectionTilte/SectionTitle";
 
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const ManageMembers = () => {
 
     // fetch the all members
 
-    const axiosPublic = useAxiosPublic()
+    // const axiosPublic = useAxiosPublic()
+
+    const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
 
     const [, , refetch] = useRole()
@@ -19,7 +22,7 @@ const ManageMembers = () => {
     const { data: members = [], isLoading, refetch: againFetch } = useQuery({
         queryKey: ['members', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/users/${user?.email}`)
+            const res = await axiosSecure.get(`/users/${user?.email}`)
 
             console.log(res.data.members, isLoading)
 
@@ -57,7 +60,7 @@ const ManageMembers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
 
-                const res = await axiosPublic.patch(`/users/${email}`, { status: 'user' })
+                const res = await axiosSecure.patch(`/users/${email}`, { status: 'user' })
 
                 console.log(res.data)
 

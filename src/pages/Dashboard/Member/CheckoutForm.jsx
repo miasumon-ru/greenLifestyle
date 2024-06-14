@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const CheckoutForm = () => {
 
@@ -25,6 +26,7 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const axiosPublic = useAxiosPublic()
+    const axiosSecure =  useAxiosSecure()
     const { user } = useAuth()
 
     const navigate = useNavigate()
@@ -36,7 +38,7 @@ const CheckoutForm = () => {
     const { data: agreementsPayment = {}, isLoading } = useQuery({
         queryKey: ['agreementsPayment', user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/acceptedAgreements/${user?.email}`)
+            const res = await axiosSecure.get(`/acceptedAgreements/${user?.email}`)
             return res.data
         }
     })
