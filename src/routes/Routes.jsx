@@ -20,6 +20,7 @@ import Announcement from "../components/Announcement/Announcement";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
 import AdminRoutes from "./AdminRoutes";
+import MemberRoutes from "./MemberRoutes";
 
 
 
@@ -73,21 +74,31 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>
 
       },
+
+      // member Routes
       {
         path: 'makePayment',
-        element: <MakePayment></MakePayment>
+        element: <MemberRoutes>
+          <MakePayment></MakePayment>
+        </MemberRoutes>
 
       },
       {
         path: 'payment',
-        element: <Payment></Payment>
+        element: <MemberRoutes>
+          <Payment></Payment>
+        </MemberRoutes>
 
       },
       {
         path: 'paymentHistory',
-        element: <PaymentHistory></PaymentHistory>
+        element: <MemberRoutes>
+          <PaymentHistory></PaymentHistory>
+        </MemberRoutes>
 
       },
+
+      // admin routes
       {
         path: 'manageMembers',
         element: <AdminRoutes>
