@@ -85,7 +85,7 @@ const MakePayment = () => {
                             <label className="label">
                                 <span className="label-text">Rent</span>
                             </label>
-                            <input type="text" defaultValue={`$${agreements.rent}`} disabled placeholder="Rent" className="input input-bordered" required />
+                            <input type="text" defaultValue={`$ ${agreements.rent}`} disabled placeholder="Rent" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control w-full">

@@ -16,7 +16,7 @@ const ManageCoupons = () => {
     const axiosPublic = useAxiosPublic()
 
 
-    const { data: coupons = {}, isLoading } = useQuery({
+    const { data: coupons = [], isLoading, refetch  } = useQuery({
         queryKey: ['coupons'],
         queryFn: async () => {
             const res = await axiosPublic.get('/coupons')
@@ -63,6 +63,8 @@ const ManageCoupons = () => {
         if (res.data.insertedId) {
             toast.success('Coupon is added successfully')
             e.target.reset()
+
+            refetch()
         }
 
 
@@ -100,7 +102,7 @@ const ManageCoupons = () => {
                                 </label>
                                 <input type="text" {...register("couponCode")} placeholder="Coupon Code" className="input input-bordered" required />
                             </div>
-                            
+
                             <div className="form-control mb-2">
                                 <label className="label">
                                     <span className="label-text">Discount Percentage</span>

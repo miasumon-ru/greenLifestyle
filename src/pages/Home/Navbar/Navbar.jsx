@@ -3,6 +3,8 @@ import useAuth from "../../../hooks/useAuth";
 
 import defaultUserIcon from '../../../assets/user.png'
 
+import navbarLogo from '../../../assets/whiteLogo.png'
+
 
 
 
@@ -53,7 +55,12 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl font-bold"> <span  className="text-green-500">Green</span> <span className="text-orange-500">LifeStyle</span> </a>
+                <div className="flex flex-row justify-center items-center gap-2">
+                    <img className="w-48 h-20 object-cover" src={navbarLogo} alt="Nabar logo" />
+                    {/* <p>
+                        <a className="btn btn-ghost md:text-xl text-[16px] font-bold"> <span className="text-green-500">Green</span> <span className="text-orange-500">LifeStyle</span> </a>
+                    </p> */}
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -69,29 +76,29 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
 
                             {
-                                user ?  <img alt="User Profile Image" src={user?.photoURL} /> : <img alt="User Profile Image" src={defaultUserIcon} />
+                                user ? <img alt="User Profile Image" src={user?.photoURL} /> : <img alt="User Profile Image" src={defaultUserIcon} />
                             }
 
 
-                           
+
                         </div>
                     </div>
                     <ul tabIndex={0} className="mt-3 z-[50] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                         <li className="border p-2 bg-gray-400 text-white ">
 
-                           {user?.displayName}
-                         
+                            {user?.displayName}
+
                         </li>
                         <li className="">
 
-                            <Link className="text-center border p-2 bg-gray-400 text-white uppercase"  to={'/dashboard/myProfile'}> Dashboard </Link>
+                            <Link className="text-center border p-2 bg-gray-400 text-white uppercase" to={'/dashboard/myProfile'}> Dashboard </Link>
 
-                        
- 
+
+
                         </li>
 
 
-                 
+
                         <li className="btn uppercase mt-2" onClick={handleLogOut} > Logout </li>
                     </ul>
                 </div>

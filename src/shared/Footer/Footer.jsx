@@ -1,5 +1,5 @@
 
-
+import logo from '../../assets/greenLogo.png'
 
 const Footer = () => {
     return (
@@ -28,8 +28,10 @@ const Footer = () => {
             </footer>
             <footer className="footer px-10 roboto py-4 border-t bg-base-200 text-base-content border-base-300">
                 <aside className="items-center grid-flow-col">
+
+                    <img className='w-52 h-28 bg-gray-200 object-cover' src={logo} alt="" />
                  
-                    <a className="btn btn-ghost text-xl font-bold"> <span  className="text-green-500">Green</span> <span className="text-orange-500">LifeStyle</span> </a>
+                    {/* <a className="btn btn-ghost text-xl font-bold"> <span  className="text-green-500">Green</span> <span className="text-orange-500">LifeStyle</span> </a> */}
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
