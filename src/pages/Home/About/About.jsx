@@ -14,7 +14,7 @@ const About = () => {
                 <SectionTitle title={"About The Buildings"}></SectionTitle>
             </div>
 
-             <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-between gap-6">
+            <div className="flex flex-col-reverse md:flex-col-reverse lg:flex-row justify-between gap-6">
                 <div className="space-y-8 p-4">
                     {/* details of the buildings */}
 
@@ -29,26 +29,36 @@ const About = () => {
 
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-center relative">
                     {/* image */}
 
                     <img className="rounded-xl" src={apartment} alt="" />
+
+                    {/* <div className='border rounded-md top-48 left-28 -rotate-12 text-center mt-10 upperCase absolute roboto p-5 bg-green-100 transparent '>
+
+                        <p> Use this Coupon </p>
+                        <p> To get  <span className="text-orange-400 text-xl"> 30% Discount</span> </p>
+
+                        <p className="text-xl mt-6 text-green-400 font-bold" > Sumon30 </p>
+
+                    </div> */}
+
                 </div>
-             </div>
+            </div>
 
-             <div className=" border border-dashed my-8"></div>
+            <div className=" border border-dashed my-8"></div>
 
-             {/* Other Details */}
+            {/* Other Details */}
 
-             <div className="grid grid-col md:grid-cols-2 lg:grid-cols-4 gap-2 justify-evenly">
+            <div className="grid grid-col md:grid-cols-2 lg:grid-cols-4 gap-2 justify-evenly">
 
                 <InfoCard number={235} infoName={'Luxury Apartments'}></InfoCard>
                 <InfoCard number={500} infoName={'Satisfied Reviews'}></InfoCard>
                 <InfoCard number={35} infoName={'Years of Development'}></InfoCard>
                 <InfoCard number={20} infoName={'Parkings'}></InfoCard>
 
-       
-             </div>
+
+            </div>
 
 
 
