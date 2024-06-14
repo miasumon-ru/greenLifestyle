@@ -187,10 +187,11 @@ const AgreementRequest = () => {
                             <th>Floor No</th>
                             <th>Block Name</th>
                             <th>Apartment No</th>
+                            <th>Rent</th>
                             <th>Request Date</th>
                             <th>Accept</th>
                             <th>Reject</th>
-                            <th >Status</th>
+                         
                         </tr>
                     </thead>
                     <tbody>
@@ -204,10 +205,11 @@ const AgreementRequest = () => {
                                 <td> {agreement.floorNo} </td>
                                 <td> {agreement.blockName} </td>
                                 <td> {agreement.apartmentNo} </td>
+                                <td> `${agreement.rent}` </td>
                                 <td> {agreement.requestDate} </td>
                                 <td> <button onClick={() => handleAccept(agreement)} className="btn btn-xs text-green-400"> Accept </button> </td>
                                 <td> <button onClick={() => handleReject(agreement)} className="btn btn-xs text-red-400"> Reject </button> </td>
-                                <td className="text-yellow-400"> {agreement.status} </td>
+                       
 
                             </tr>)
                         }

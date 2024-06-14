@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import defaultUserIcon from '../../../assets/user.png'
 
 import navbarLogo from '../../../assets/whiteLogo.png'
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -21,6 +22,8 @@ const Navbar = () => {
         logOut()
             .then(() => {
                 // console.log("logout is successful")
+
+                toast.success('Logout is successful')
             })
 
 
@@ -120,6 +123,8 @@ const Navbar = () => {
 
                     </ul>
                 </div>
+
+                <Toaster></Toaster>
 
             </div>
         </div>

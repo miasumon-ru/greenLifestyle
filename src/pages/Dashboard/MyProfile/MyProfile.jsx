@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import useRole from '../../../hooks/useRole';
 import UserDashboard from '../UserDashboard';
 import MemberProfile from '../Member/MemberProfile';
+import AdminProfile from '../Admin/AdminProfile';
 
 
 
@@ -25,6 +26,7 @@ const MyProfile = () => {
 
             {role === 'user' && <UserDashboard></UserDashboard> }
             {role === 'member' && <MemberProfile></MemberProfile> }
+            {role === 'admin' && <AdminProfile></AdminProfile> }
 
         </div>
     );

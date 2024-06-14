@@ -105,7 +105,6 @@ const Login = () => {
                 toast.success("Login is successful")
 
 
-
                 setTimeout(() => {
 
                     navigate('/')
