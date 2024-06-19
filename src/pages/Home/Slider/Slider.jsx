@@ -82,7 +82,7 @@ const Slider = () => {
                     <div className='absolute'>
 
 
-                        <div className=' text-2xl md:text-6xl text-gray-200 font-bold '>
+                        <div className=' text-2xl md:text-6xl text-gray-200 font-bold roboto'>
 
 
 
