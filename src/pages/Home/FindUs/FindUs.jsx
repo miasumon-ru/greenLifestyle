@@ -59,7 +59,7 @@ const FindUs = () => {
                     </li>
                 </ul> */}
 
-                <ul className="timeline timeline-vertical">
+                <ul className="timeline timeline-vertical roboto">
                     <li>
                         <div className="timeline-start timeline-box">Asia</div>
                         <div className="timeline-middle">

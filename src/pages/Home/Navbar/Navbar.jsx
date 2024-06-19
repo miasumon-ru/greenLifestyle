@@ -8,7 +8,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 
-
 const Navbar = () => {
 
     const { user, logOut } = useAuth()
@@ -27,9 +26,7 @@ const Navbar = () => {
             })
 
 
-
     }
-
 
 
     const links = <>
@@ -47,8 +44,6 @@ const Navbar = () => {
     </>
 
 
-
-
     return (
         <div className="navbar bg-base-100 workSans text-xl text-[#131313CC] ">
             <div className="navbar-start">
@@ -61,7 +56,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex flex-row justify-center items-center gap-2">
-                    <img className="w-48 h-20 object-cover" src={navbarLogo} alt="Nabar logo" />
+                    <Link to={'/'} > <img className="w-48 h-20 object-cover" src={navbarLogo} alt="Navbar logo" /> </Link>
                     {/* <p>
                         <a className="btn btn-ghost md:text-xl text-[16px] font-bold"> <span className="text-green-500">Green</span> <span className="text-orange-500">LifeStyle</span> </a>
                     </p> */}
