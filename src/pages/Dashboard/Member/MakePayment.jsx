@@ -25,7 +25,11 @@ const MakePayment = () => {
 
     if (isLoading) {
         return <span className="loading loading-bars loading-lg"></span>
+
     }
+
+
+    
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const d = new Date()
