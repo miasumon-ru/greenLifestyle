@@ -133,7 +133,7 @@ const AgreementRequest = () => {
 
                 // change the status into checked
 
-                const res = await axiosPublic.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
+                const res = await axiosSecure.patch(`agreements/${agreement.userEmail}`, { status: "checked" })
                 // const result = await axiosPublic.patch(`/users/${email}`, { status: 'member' })
                 // console.log(result.data)
 
