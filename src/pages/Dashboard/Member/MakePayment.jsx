@@ -20,7 +20,7 @@ const MakePayment = () => {
         }
     })
 
-    console.log(agreements)
+    // console.log(agreements)
 
 
     if (isLoading) {
@@ -29,7 +29,7 @@ const MakePayment = () => {
     }
 
 
-    
+
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const d = new Date()

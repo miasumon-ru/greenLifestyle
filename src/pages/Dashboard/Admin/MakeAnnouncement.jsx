@@ -23,7 +23,7 @@ const MakeAnnouncement = () => {
 
         const description = data.description
 
-        console.log('tile:', title, 'description: ', description)
+        // console.log('tile:', title, 'description: ', description)
 
         const announcement = {
             title : title,
@@ -33,7 +33,7 @@ const MakeAnnouncement = () => {
 
         const res = await axiosPublic.post('/announcements', announcement)
 
-        console.log(res.data)
+        // console.log(res.data)
 
         if(res.data.insertedId){
             toast.success("The announcement has been successful")

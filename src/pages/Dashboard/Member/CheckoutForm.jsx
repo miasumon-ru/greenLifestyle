@@ -43,21 +43,21 @@ const CheckoutForm = () => {
         }
     })
 
-    console.log(agreementsPayment)
+    // console.log(agreementsPayment)
 
     const totalPrice = parseInt(agreementsPayment.rent)
-    console.log(totalPrice)
+    // console.log(totalPrice)
 
         // handle Coupon
 
         const handleCoupon = (data) => {
-            console.log(data.coupon)
+            // console.log(data.coupon)
     
             if(data.coupon === 'Sumon30'){
                 const discount = totalPrice * 30 / 100
                 
                const payable = totalPrice - discount
-                console.log(payable)
+                // console.log(payable)
 
                 setDiscountPrice(payable)
     
@@ -75,7 +75,7 @@ const CheckoutForm = () => {
     
         }
 
-        console.log( 'discount is : ' ,  discountPrice)
+        // console.log( 'discount is : ' ,  discountPrice)
 
 
     
@@ -97,7 +97,7 @@ const CheckoutForm = () => {
 
     }, [axiosPublic, totalPrice, discountPrice])
 
-    console.log(clientSecret)
+    // console.log(clientSecret)
 
 
 
@@ -139,7 +139,7 @@ const CheckoutForm = () => {
         })
 
         if (error) {
-            console.log('Error', error)
+            // console.log('Error', error)
 
             setError(error.message)
         } else {
@@ -163,13 +163,13 @@ const CheckoutForm = () => {
         })
 
         if (confirmError) {
-            console.log("confirm error")
+            // console.log("confirm error")
         }
         else {
-            console.log("payment intent", paymentIntent)
+            // console.log("payment intent", paymentIntent)
 
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id)
+                // console.log('transaction id', paymentIntent.id)
 
                 // setTransactionId(paymentIntent.id)
 
@@ -194,7 +194,7 @@ const CheckoutForm = () => {
 
                 const res = await axiosPublic.post('/payments', payment)
 
-                console.log("payment saved", res.data)
+                // console.log("payment saved", res.data)
 
                 if (res.data.insertedId) {
 

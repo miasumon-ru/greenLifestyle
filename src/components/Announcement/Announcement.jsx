@@ -14,13 +14,13 @@ const Announcement = () => {
         queryFn : async()=> {
             const res = await axiosPublic.get('/announcements')
 
-            console.log(res.data)
+            // console.log(res.data)
 
             return res.data
         }
     })
 
-    console.log(announcements)
+    // console.log(announcements)
 
     if (isLoading) {
         return <span className="loading loading-bars loading-lg"></span>

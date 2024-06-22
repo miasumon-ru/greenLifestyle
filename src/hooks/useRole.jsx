@@ -9,7 +9,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useRole = () => {
     const { user } = useAuth()
 
-    console.log(user)
+    // console.log(user)
 
     // const axiosPublic = useAxiosPublic()
     const axiosSecure =  useAxiosSecure()
@@ -21,13 +21,13 @@ const useRole = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user?.email}`)
 
-            console.log(res.data.role, isLoading)
+            // console.log(res.data.role, isLoading)
 
             return res.data.role
         }
     })
 
-    console.log(role)
+    // console.log(role)
     return [role, isLoading, refetch]
 };
 

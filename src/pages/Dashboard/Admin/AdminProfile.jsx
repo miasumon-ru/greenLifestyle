@@ -55,12 +55,12 @@ const AdminProfile = () => {
         }
     })
 
-    console.log( 'users all', usersAll)
+    // console.log( 'users all', usersAll)
 
     const numberOfUsers = usersAll.filter(userOne => userOne.role === 'user').length
     const numberOfMembers = usersAll.filter(userOne => userOne.role === 'member').length
-    console.log("number of user is : ", numberOfUsers)
-    console.log("number of member is : ", numberOfMembers)
+    // console.log("number of user is : ", numberOfUsers)
+    // console.log("number of member is : ", numberOfMembers)
 
    
     if (isLoading) {

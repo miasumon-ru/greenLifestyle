@@ -19,7 +19,7 @@ const MemberProfile = () => {
         }
     })
 
-    console.log(agreementAccepted)
+    // console.log(agreementAccepted)
 
 
     if (isLoading) {

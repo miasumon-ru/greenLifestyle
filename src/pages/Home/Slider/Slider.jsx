@@ -49,7 +49,7 @@ const Slider = () => {
         </div>
     }
 
-    console.log(sliders)
+    // console.log(sliders)
 
 
 

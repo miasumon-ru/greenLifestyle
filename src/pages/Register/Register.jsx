@@ -106,7 +106,7 @@ const Register = () => {
                             role: 'user'
                         }
         
-                        console.log( 'info', userInfo)
+                        // console.log( 'info', userInfo)
                      
                         const responseUser = await axiosPublic.post(`/users`, userInfo)
                         console.log(responseUser)

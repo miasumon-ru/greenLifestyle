@@ -24,7 +24,7 @@ const ManageMembers = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user?.email}`)
 
-            console.log(res.data.members, isLoading)
+            // console.log(res.data.members, isLoading)
 
             if (res.data.members) {
 
@@ -37,7 +37,7 @@ const ManageMembers = () => {
         }
     })
 
-    console.log(members)
+    // console.log(members)
 
     if (isLoading) {
         return <span className="loading loading-bars loading-lg"></span>
@@ -47,7 +47,7 @@ const ManageMembers = () => {
 
     const handleMember = async (email) => {
 
-        console.log(email)
+        // console.log(email)
 
         Swal.fire({
             title: "Are you sure?",

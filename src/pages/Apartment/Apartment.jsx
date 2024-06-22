@@ -73,13 +73,13 @@ const Apartment = () => {
 
     const handleAgreement = async (id) => {
 
-        console.log('agreement for id', id)
+        // console.log('agreement for id', id)
 
         // get the specific apartment by id
 
         const apartment = await axiosPublic.get(`/apartments/${id}`)
 
-        console.log(apartment.data)
+        // console.log(apartment.data)
 
         const date = new Date().toDateString()
 

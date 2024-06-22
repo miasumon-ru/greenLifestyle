@@ -24,7 +24,7 @@ const ManageCoupons = () => {
         }
     })
 
-    console.log(coupons)
+    // console.log(coupons)
 
 
     if (isLoading) {
@@ -42,7 +42,7 @@ const ManageCoupons = () => {
 
         const couponDescription = data.couponDescription
 
-        console.log(couponCode, discountPercentage, couponDescription)
+        // console.log(couponCode, discountPercentage, couponDescription)
 
         const couponInfo = {
 
@@ -52,13 +52,13 @@ const ManageCoupons = () => {
 
         }
 
-        console.log(couponInfo)
+        // console.log(couponInfo)
 
         // add coupon into the database
 
         const res = await axiosPublic.post('/coupons', couponInfo)
 
-        console.log(res.data)
+        // console.log(res.data)
 
         if (res.data.insertedId) {
             toast.success('Coupon is added successfully')

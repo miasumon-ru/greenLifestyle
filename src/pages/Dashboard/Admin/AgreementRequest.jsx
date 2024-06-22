@@ -19,7 +19,7 @@ const AgreementRequest = () => {
         }
     })
 
-    console.log(agreements)
+    // console.log(agreements)
 
 
     if (isLoading) {
@@ -30,7 +30,7 @@ const AgreementRequest = () => {
 
     const handleAccept = async (agreement) => {
 
-        console.log(agreement)
+        // console.log(agreement)
 
         Swal.fire({
             title: "Are you sure?",
@@ -49,7 +49,7 @@ const AgreementRequest = () => {
                 const result = await axiosSecure.patch(`/users/${agreement.userEmail}`, { status: 'member' })
                 console.log(result.data)
 
-                console.log(res.data)
+                // console.log(res.data)
 
                 if (res.data.modifiedCount > 0) {
 
@@ -137,7 +137,7 @@ const AgreementRequest = () => {
                 // const result = await axiosPublic.patch(`/users/${email}`, { status: 'member' })
                 // console.log(result.data)
 
-                console.log(res.data)
+                // console.log(res.data)
 
                 if (res.data.modifiedCount > 0) {
 
