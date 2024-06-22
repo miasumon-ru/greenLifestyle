@@ -22,6 +22,7 @@ live link : https://assignment-twelve-client-e914a.web.app/
 
 ## Features
 - assignment_category_00012
+- adminEmail =  miasumon.ru@gmail.com , adminPassword : miaSumon1#
 - the international payment gateway  (stripe)
 - have option to apply the coupon 
 - axios and tanstack query is used to fetch the data
