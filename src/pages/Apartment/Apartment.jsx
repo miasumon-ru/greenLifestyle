@@ -100,7 +100,7 @@ const Apartment = () => {
         const agreement = await axiosPublic.post(`/agreements/${user?.email}`, agreementInfo)
 
         if (agreement.data.message === true) {
-            return toast.error( ' Sorry !! A user is able to apply for one apartment only until request is accepted')
+            return toast.error('Sorry! A user is able to apply for one apartment only')
         }
 
         if (agreement.data.insertedId) {
