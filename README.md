@@ -35,7 +35,15 @@ live link : https://assignment-twelve-client-e914a.web.app/
 - Firebase is  used to create user and login with email and password and therefore login with Google and Github
 - Single building management system
 
+## Technologies I have used 
 
+-   React 
+-   MongoDB
+-   Express 
+-   Node js
+-   Tailwind Css
+-    Firebase for authentication
+-   DaisyUI , a component library
 
 
 ## Npm Packages
