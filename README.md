@@ -21,8 +21,7 @@ live link : https://assignment-twelve-client-e914a.web.app/
 
 
 ## Features
-- assignment_category_00012
-- adminEmail =  miasumon.ru@gmail.com , adminPassword : miaSumon1#
+
 - the international payment gateway  (stripe)
 - have option to apply the coupon 
 - axios and tanstack query is used to fetch the data
@@ -34,6 +33,7 @@ live link : https://assignment-twelve-client-e914a.web.app/
 - Dynamic routes and  private routes are implemented
 - Firebase is  used to create user and login with email and password and therefore login with Google and Github
 - Single building management system
+- adminEmail =  miasumon.ru@gmail.com , adminPassword : miaSumon1#
 
 ## Technologies I have used 
 
@@ -42,7 +42,7 @@ live link : https://assignment-twelve-client-e914a.web.app/
 -   Express 
 -   Node js
 -   Tailwind Css
--    Firebase for authentication
+-   Firebase for authentication
 -   DaisyUI , a component library
 
 
